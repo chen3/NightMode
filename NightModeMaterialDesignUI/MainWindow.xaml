@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NightModeMaterialDesignUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="夜间模式" Height="150" Width="380">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListBox>
+        </ListBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <CheckBox Style="{StaticResource MaterialDesignCheckBox}"
+                      x:Name="NightMode" Content="夜间模式" IsEnabled="False"
+                      VerticalAlignment="Center" Margin="5, 0, 10, 0"/>
+            <Button Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    Margin="0 0 0 0" IsEnabled="False" ToolTip="定时开关"
+                    Height="30" Width="30">
+                <materialDesign:PackIcon Kind="Alarm" Height="20" Width="20" />
+            </Button>
+            <CheckBox Style="{StaticResource MaterialDesignCheckBox}" 
+                      x:Name="NightTheme" Content="暗色主题" 
+                      VerticalAlignment="Center" Margin="10, 0, 10, 0" Click="NightTheme_Click"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Slider Minimum="25" Maximum="100" Style="{StaticResource MaterialDesignDiscreteSlider}" 
+                    ToolTip="亮度(百分比)" Grid.Column="1" Margin="0, 0, 0, 10" VerticalAlignment="Bottom"/>
+            <TextBlock Text="暗" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                       Margin="0, 0, 0, 8"/>
+            <TextBlock Text="亮" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Margin="0, 0, 0, 8"/>
+        </Grid>
     </Grid>
 </Window>
