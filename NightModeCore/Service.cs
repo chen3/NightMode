@@ -1,6 +1,7 @@
 ﻿using NightModeCore.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,11 @@ namespace NightModeCore.Service
         {
             Properties.Settings.Default.Opacity = Opacity;
             Properties.Settings.Default.Save();
+        }
+
+        public void Exit()
+        {
+            MaskForm.GetMaskForm().Close();
         }
 
     }

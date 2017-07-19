@@ -23,7 +23,8 @@
         </ListBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <CheckBox Style="{StaticResource MaterialDesignCheckBox}"
-                      x:Name="NightMode" Content="夜间模式" IsEnabled="False"
+                      x:Name="NightMode" Content="夜间模式" 
+                      Checked="NightMode_Changed" Unchecked="NightMode_Changed"
                       VerticalAlignment="Center" Margin="5, 0, 10, 0"/>
             <Button Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
                     Margin="0 0 0 0" IsEnabled="False" ToolTip="定时开关"
@@ -32,7 +33,8 @@
             </Button>
             <CheckBox Style="{StaticResource MaterialDesignCheckBox}" 
                       x:Name="NightTheme" Content="暗色主题" 
-                      VerticalAlignment="Center" Margin="10, 0, 10, 0" Click="NightTheme_Click"/>
+                      VerticalAlignment="Center" Margin="10, 0, 10, 0" 
+                      Checked="NightTheme_Changed" Unchecked="NightTheme_Changed"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -40,8 +42,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Slider Minimum="25" Maximum="100" Style="{StaticResource MaterialDesignDiscreteSlider}" 
-                    ToolTip="亮度(百分比)" Grid.Column="1" Margin="0, 0, 0, 10" VerticalAlignment="Bottom"/>
+            <Slider Style="{StaticResource MaterialDesignDiscreteSlider}" 
+                    Minimum="25" Maximum="100" VerticalAlignment="Bottom"
+                    ToolTip="亮度(百分比)" Grid.Column="1" Margin="0, 0, 0, 10"
+                    ValueChanged="NightModeOpacity_ValueChanged" x:Name="NightModeOpacity"/>
             <TextBlock Text="暗" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        Margin="0, 0, 0, 8"/>
             <TextBlock Text="亮" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left"
